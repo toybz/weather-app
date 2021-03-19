@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { WeatherCardComponent } from './components/weather-card/weather-card.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
+import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import {HttpClientModule} from '@angular/common/http';
   ],
   imports: [
     BrowserModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxSkeletonLoaderModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
