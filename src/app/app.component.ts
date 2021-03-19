@@ -10,11 +10,11 @@ export class AppComponent {
   cities = [
     {
       name: 'Amsterdam',
-      image: 'assets/images/cities/amsterdam.jpg'
+      image: 'assets/images/cities/amsterdam.webp'
     } ,
     {
       name: 'Paris',
-      image: 'assets/images/cities/paris.jpg'
+      image: 'assets/images/cities/paris.webp'
 
     } ,
     {
@@ -24,12 +24,12 @@ export class AppComponent {
     } ,
     {
       name: 'Berlin',
-      image: 'assets/images/cities/berlin.jpg'
+      image: 'assets/images/cities/berlin.webp'
 
     } ,
     {
       name: 'Rome',
-      image: 'assets/images/cities/rome.jpg'
+      image: 'assets/images/cities/rome.webp'
 
     } ,
   ] ;
