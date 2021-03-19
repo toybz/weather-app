@@ -45,6 +45,21 @@
   );
 }
 
+.open_forecast_button {
+  //content: "";
+  display: none;
+}
+
+.open_forecast_button:not(.collapsed) {
+  display: block;
+}
+
+
+
+.close_forecast_button:not(.collapsed) {
+ // display: none;
+}
+
 .more-info::after {
   flex-shrink: 0;
   width: 1.25rem;

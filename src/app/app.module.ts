@@ -6,6 +6,8 @@ import { WeatherCardComponent } from './components/weather-card/weather-card.com
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,8 @@ import {NgxSkeletonLoaderModule} from 'ngx-skeleton-loader';
   imports: [
     BrowserModule,
     HttpClientModule,
-    NgxSkeletonLoaderModule.forRoot()
+    NgxSkeletonLoaderModule.forRoot(),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: true })
   ],
   providers: [],
   bootstrap: [AppComponent]

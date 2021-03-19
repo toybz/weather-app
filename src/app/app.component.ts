@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {City} from './models/city-weather';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +8,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'weather-app';
-  cities = [
+  cities: Array<City> = [
     {
       name: 'Amsterdam',
       image: 'assets/images/cities/amsterdam.webp',

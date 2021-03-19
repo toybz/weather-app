@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {CityWeather} from '../../models/city-weather';
+import {City, CityWeather} from '../../models/city-weather';
 import {WheatherService} from '../../services/wheather.service';
 
 @Component({
@@ -9,24 +9,27 @@ import {WheatherService} from '../../services/wheather.service';
 })
 export class WeatherCardComponent implements OnInit {
 
-  @Input() city =  {
+  @Input() city: City =  {
     name: '',
     image: '',
     id: ''
   };
+ @Input() accordionId = 0 ;
   weatherData: CityWeather = {
     temperature: '',
+    dateTime: '',
     wind: '',
     forecast: []
   } ;
-  // To Auto Geneate an Id for the accordion
-  weatherCardId = new Date().getTime();
+
 
   isFetchingWeather = false;
   isFetchingForecast = false;
 
+
   constructor(private weatherService: WheatherService) { }
   ngOnInit(): void {
+
     this.getCurrentWeather();
   }
 
@@ -37,7 +40,8 @@ export class WeatherCardComponent implements OnInit {
         console.log('weather response', response);
         this.weatherData = {...this.weatherData,
           temperature: response.main.temp,
-          wind: response.wind.speed
+          wind: response.wind.speed,
+          dateTime: new Date(response.dt)
         };
      //   this.isFetchingWeather = false;
 
@@ -51,6 +55,9 @@ export class WeatherCardComponent implements OnInit {
   }
 
   fetchWeatherForecast(): void{
+    if (this.weatherData.forecast.length >= 1){
+      return;
+    }
     this.isFetchingForecast = true;
     this.weatherService.getWeatherForecast(this.city.id).subscribe((response: any) => {
         console.log('weather forecast', response);
@@ -82,5 +89,8 @@ export class WeatherCardComponent implements OnInit {
 
   }
 
+  timeStampToDate(timestamp: string): string{
+    return new Date(timestamp).toDateString();
+  }
 
 }

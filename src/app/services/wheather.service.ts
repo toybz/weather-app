@@ -7,7 +7,7 @@ import { environment } from '../../environments/environment';
 })
 export class WheatherService {
 
-  baseUrl = 'https://api.openweathermap.org/data/2.5/';
+  baseUrl = 'https://api.openweathermap.org/data/2.5';
   weatherAppId = environment.weatherAppId;
   units = 'metric';
 

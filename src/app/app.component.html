@@ -21,7 +21,7 @@
 
       <div class="accordion" id="accordionExample">
 
-        <app-weather-card *ngFor="let city of cities"  [city]="city"></app-weather-card>
+        <app-weather-card *ngFor="let city of cities; let id = index"  [city]="city" [accordionId]="id" ></app-weather-card>
 
 
 
