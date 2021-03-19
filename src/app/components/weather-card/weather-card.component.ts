@@ -11,7 +11,8 @@ export class WeatherCardComponent implements OnInit {
 
   @Input() city =  {
     name: '',
-    image: ''
+    image: '',
+    id: ''
   };
   weatherData: CityWeather = {
     temperature: '',
@@ -32,7 +33,7 @@ export class WeatherCardComponent implements OnInit {
 
   getCurrentWeather(): void{
     this.isFetchingWeather = true;
-    this.weatherService.getCurrentWeather(this.city.name).subscribe((response: any) => {
+    this.weatherService.getCurrentWeather(this.city.id).subscribe((response: any) => {
         console.log('weather response', response);
         this.weatherData = {...this.weatherData,
           temperature: response.main.temp,
@@ -42,7 +43,7 @@ export class WeatherCardComponent implements OnInit {
 
         setTimeout(() => {
           this.isFetchingWeather = false;
-        }, 5000 );
+        }, 3000 );
 
     }
 
@@ -51,7 +52,7 @@ export class WeatherCardComponent implements OnInit {
 
   fetchWeatherForecast(): void{
     this.isFetchingForecast = true;
-    this.weatherService.getWeatherForecast(this.city.name).subscribe((response: any) => {
+    this.weatherService.getWeatherForecast(this.city.id).subscribe((response: any) => {
         console.log('weather forecast', response);
 
         this.weatherData.forecast = this.cleanForecastData(response.list);
@@ -59,7 +60,7 @@ export class WeatherCardComponent implements OnInit {
 
       setTimeout(() => {
         this.isFetchingForecast = false;
-      }, 5000 );
+      }, 3000 );
 
       }
 

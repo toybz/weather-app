@@ -13,13 +13,13 @@ export class WheatherService {
 
   constructor(private http: HttpClient) { }
 
-  getCurrentWeather(cityName: string): any{
-    return this.http.get(`${this.baseUrl}/weather?q=${cityName}&appid=${this.weatherAppId}&units=${this.units}`);
+  getCurrentWeather(cityId: string): any{
+    return this.http.get(`${this.baseUrl}/weather?id=${cityId}&appid=${this.weatherAppId}&units=${this.units}`);
 
   }
 
-  getWeatherForecast(cityName: string): any{
-    return this.http.get(`${this.baseUrl}/forecast?q=${cityName}&appid=${this.weatherAppId}&units=${this.units}`);
+  getWeatherForecast(cityId: string): any{
+    return this.http.get(`${this.baseUrl}/forecast?id=${cityId}&appid=${this.weatherAppId}&units=${this.units}`);
 
   }
 }
