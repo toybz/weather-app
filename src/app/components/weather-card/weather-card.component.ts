@@ -55,9 +55,7 @@ export class WeatherCardComponent implements OnInit {
   }
 
   fetchWeatherForecast(): void{
-    if (this.weatherData.forecast.length >= 1){
-      return;
-    }
+
     this.isFetchingForecast = true;
     this.weatherService.getWeatherForecast(this.city.id).subscribe((response: any) => {
         console.log('weather forecast', response);
