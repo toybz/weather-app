@@ -33,9 +33,9 @@
               <span class="wind-strength"> {{weatherData.wind}}</span>
             </p>
 
-            <p class="my-0" *ngIf="!isFetchingWeather">
+          <!--  <p class="my-0" *ngIf="!isFetchingWeather">
               <span class=""> {{weatherData.dateTime | date: 'short'  }}</span>
-            </p>
+            </p>-->
 
             <p class="error-message" *ngIf="errorOccurred">
            {{errorMessage}}
