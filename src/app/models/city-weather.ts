@@ -14,4 +14,3 @@ export interface CityWeather {
     dateTime: string
   }> | [] ;
 }
-
