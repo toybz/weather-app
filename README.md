@@ -4,7 +4,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/toybz/weather-app">
-    <img src="src/assets/screenshots/landing-page.png" alt="Logo" width="150" height="150">
+    <img src="src/assets/screenshots/landing-page.png" alt="Logo" >
   </a>
 
 <h3 align="center">Angular Weather App</h3>
