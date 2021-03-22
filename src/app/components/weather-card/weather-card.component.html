@@ -37,6 +37,10 @@
               <span class=""> {{weatherData.dateTime | date: 'short'  }}</span>
             </p>
 
+            <p class="error-message" *ngIf="errorOccurred">
+           {{errorMessage}}
+            </p>
+
           </div>
 
           <button data-bs-toggle="collapse" [attr.data-bs-target]="'#accordion-body'+ accordionItemId"

@@ -24,6 +24,8 @@ export class WeatherCardComponent implements OnInit {
   } ;
   isFetchingWeather = false;
   isFetchingForecast = false;
+  errorOccurred = false;
+  errorMessage = '';
 
   constructor(private weatherService: WheatherService) { }
   ngOnInit(): void {
@@ -34,6 +36,7 @@ export class WeatherCardComponent implements OnInit {
   getCurrentWeather(): void{
     // set to true to show the skeleton loading component and hide weather details
     this.isFetchingWeather = true;
+    this.errorOccurred = false;
     this.weatherService.getCurrentWeather(this.city.id).subscribe((response: any) => {
       // update the weather data with the  current weather response
         this.weatherData = {...this.weatherData,
@@ -43,7 +46,12 @@ export class WeatherCardComponent implements OnInit {
         };
         // set to false to hide the skeleton loading component and show the current weather details
         this.isFetchingWeather = false;
-    }
+    } ,
+      (error) => {
+        this.isFetchingWeather = false;
+        this.errorOccurred = true;
+        this.errorMessage = 'Fetching the current wheather failed. Please check your internet connection and API APP Key ';
+      }
     );
   }
 
@@ -51,11 +59,17 @@ export class WeatherCardComponent implements OnInit {
   fetchWeatherForecast(): void{
     // set to true to show the skeleton loading component and hide the forecast table
     this.isFetchingForecast = true;
+    this.errorOccurred = false;
     this.weatherService.getWeatherForecast(this.city.id).subscribe((response: any) => {
       // clean the Forecast response to match the forecast  data and update the weather data
       this.weatherData.forecast = this.cleanForecastData(response.list);
       // set to false to hide the skeleton loading component and show the forecast table
       this.isFetchingForecast = false;
+      } ,
+      (error) => {
+        this.isFetchingForecast = false;
+        this.errorOccurred = true;
+        this.errorMessage = 'Fetching weather forecast failed. Please check your internet connection and API APP Key ';
       }
     );
   }
