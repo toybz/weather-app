@@ -33,7 +33,3 @@ describe('AppComponent', () => {
     expect(compiled.querySelector('.navbar-brand').textContent).toContain('Weather App');
   });
 });
-
-/*
-Test that the weather components is rendered for each array
- */

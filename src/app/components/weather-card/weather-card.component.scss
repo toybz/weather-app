@@ -1,28 +1,25 @@
 .weather-card{
   margin-bottom: 2rem;
 }
-
 .average-weather{
   font-size: xx-large;
-  // font-weight: bold;
   text-align: center;
 
 }
-
 .wind-strength{
   font-size: xx-large;
   text-align: center;
 }
-
 .city-image-container{
   object-fit: contain
 }
-
 .city_name{
   text-align: center;
   padding-top: 1rem;
 }
-
+.error-message{
+  color: red;
+}
 .show_forecast_button{
   position: relative;
   display: flex;
@@ -36,14 +33,12 @@
   color: white;
   transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out,border-radius .15s ease;
 }
-
 .show_forecast_button:not(.collapsed)::after {
   background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABkCAYAAABw4pVUAAAABmJLR0QA/wD/AP+gvaeTAAACQ0lEQVR4nO3cQW4TQRBG4RrEAbMAZUEkOFwAcS3CJVCCfhaeVkYoNp5xdXV19/ukKKvMVPlpYrkXNgMAAAAAAAAAAAAAAACakXQn6Zekn5LuWs9T27rv0/qTa19JHyU969WLpIfWc9WSet83hss3pKPU+14YLs+QjlLve8Vw7Yd0lHrfHcMNESX1vgeG6zpK6n1vGK7LKKn3dRiuqyip93Ucrt6QjlLvW2E4/yEdpd634nB+QzpKva9OZzU1hyueJd07v7ZH9r0P3Hf/2ZdOh2ZRmkZRXIzi6dws7yIXv+C9mT22iLLe83GdIey2+/8i7l/WVuiTovgno+x47Lhe0ocGA4e80av+G/i53T7dOvhwUdRrjM0Cw0RR7zE2i3QfRaPE2CzUbRSNFmOzWHdRNGqMzYLdRNHoMTaLpo+iWWJsFk4bRbPF2CyeLopmjVEoURTNHqNQgigaIMbidSGzUxQz+26xJ6d/zOyLmf02s28N7v15WZavXhd0DWLW7Dj7Zf0dfc+HZVl+eF7UPYhZsyclkvuTUVQJYjZ0lGoxzCoGMRsyStUYZpWDmA0VpXoMs4AgZkNECYkRSm0+p3jI96HPi/qLMm6MQv1EGT9GofxR5olRKG+U+WIUyhdl3hiF8kQhRqH2UYjxr4ZRiHFOgyjE+J/AKMS4VkAUYuxVMQoxjqoQhRi3coxCDC8OUYjh7YYoxKjlQBRi1LYjCjGiXBGFGNEuRCFGK29EIUZrev1C4ym+wBkAAAAAAAAAAAAAgFn9BeB6DPloOFAXAAAAAElFTkSuQmCC') ;
   transform: rotate(
       180deg
   );
 }
-
 .show_forecast_button::after {
   flex-shrink: 0;
   width: 1.25rem;
@@ -58,21 +53,14 @@
 
 @media (min-width: 768px) {
   .show_forecast_button{
-    //margin-left: -1rem;
     margin-top: 1rem;
   }
 
 }
-
-
-
-
-
-.table>:not(:last-child)>:last-child>* {
-  border-bottom-color: #dfdfdf;
-}
-
 .forecast-container{
   max-height: 25rem;
   overflow: scroll;
+}
+.table>:not(:last-child)>:last-child>* {
+  border-bottom-color: #dfdfdf;
 }
