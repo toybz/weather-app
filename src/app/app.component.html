@@ -1,30 +1,23 @@
 <header>
   <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
     <div class="container-fluid justify-content-center">
-      <a class="navbar-brand" href="#">Weather App</a>
+      <a class="navbar-brand" href="#">{{title}}</a>
     </div>
   </nav>
 </header>
 <main>
 
 
-
   <div class="container">
-
-
-
 
     <div class="row">
 
 
 
 
-      <div class="accordion" id="accordionExample">
+      <div class="accordion" id="weatherAccordion">
 
         <app-weather-card *ngFor="let city of cities; let id = index"  [city]="city" [accordionId]="id" ></app-weather-card>
-
-
-
 
       </div>
 

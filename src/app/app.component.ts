@@ -7,7 +7,8 @@ import {City} from './models/city-weather';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'weather-app';
+
+  title = 'Weather App';
   cities: Array<City> = [
     {
       name: 'Amsterdam',

@@ -13,6 +13,8 @@ export class WheatherService {
 
   constructor(private http: HttpClient) { }
 
+  //todo: Add response interface Observable<MyData[]
+
   getCurrentWeather(cityId: string): any{
     return this.http.get(`${this.baseUrl}/weather?id=${cityId}&appid=${this.weatherAppId}&units=${this.units}`);
 

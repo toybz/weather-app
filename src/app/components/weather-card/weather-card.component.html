@@ -45,23 +45,20 @@
       </p>
 
 
-      <!--<p class="my-0" *ngIf="!isFetchingWeather">
-        <span class="" > {{weatherData.dateTime | date: 'short' :'3600' }}</span>
-      </p>-->
+      <p class="my-0" *ngIf="!isFetchingWeather">
+        <span class="" > {{weatherData.dateTime | date: 'short'  }}</span>
+      </p>
 
     </div>
 
 
 
-      <button  data-bs-toggle="collapse"  [attr.data-bs-target]="'#accordion-body'+ accordionId " class="btn  btn-primary collapsed show_forecast_button" [disabled]="isFetchingWeather" (click)="fetchWeatherForecast()"   >
+      <button  data-bs-toggle="collapse"  [attr.data-bs-target]="'#accordion-body'+ accordionId" class="btn  btn-primary collapsed show_forecast_button" [disabled]="isFetchingWeather" (click)="fetchWeatherForecast()"  id="show_forecast_button"  >
         Show Forecast
       </button>
 
 
 
-
-
-
   </div>
 
 </div>
@@ -69,7 +66,7 @@
   </div>
 </div>
 
-<div id="{{'accordion-body'+ accordionId }}" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+<div id="{{'accordion-body'+ accordionId }}" class="accordion-collapse collapse accordion-body-container" aria-labelledby="headingOne" data-bs-parent="#weatherAccordion">
   <div class="accordion-body text-center px-0 forecast-container">
     <table class="table   ">
       <thead>

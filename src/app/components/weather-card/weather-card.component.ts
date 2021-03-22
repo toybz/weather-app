@@ -41,13 +41,9 @@ export class WeatherCardComponent implements OnInit {
         this.weatherData = {...this.weatherData,
           temperature: response.main.temp,
           wind: response.wind.speed,
-          dateTime: new Date(response.dt)
+          dateTime: new Date(response.dt * 1000)
         };
-     //   this.isFetchingWeather = false;
-
-        setTimeout(() => {
-          this.isFetchingWeather = false;
-        }, 3000 );
+        this.isFetchingWeather = false;
 
     }
 
@@ -61,11 +57,8 @@ export class WeatherCardComponent implements OnInit {
         console.log('weather forecast', response);
 
         this.weatherData.forecast = this.cleanForecastData(response.list);
-       // this.isFetchingForecast = false;
+       this.isFetchingForecast = false;
 
-      setTimeout(() => {
-        this.isFetchingForecast = false;
-      }, 3000 );
 
       }
 
