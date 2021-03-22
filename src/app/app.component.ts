@@ -9,6 +9,7 @@ import {City} from './models/city-weather';
 export class AppComponent {
 
   title = 'Weather App';
+  // The 5 Selected cities
   cities: Array<City> = [
     {
       name: 'Amsterdam',

@@ -36,9 +36,7 @@
       </ul>
     </li>
     <li><a href="#usage">Usage</a></li>
-    <li><a href="#contributing">Contributing</a></li>
     <li><a href="#contact">Contact</a></li>
-    <li><a href="#acknowledgements">Acknowledgements</a></li>
   </ol>
 </details>
 
@@ -46,15 +44,13 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-The goal of this weather app is to  display weather conditions and forecasts  for Selected cities.  
+The goal of this weather app is to  display weather conditions and forecasts for selected cities.  
 
 ### Built With
-
 
 * [Angular](https://angular.io/)
 * [Bootstrap](https://getbootstrap.com)
 * [OpenWeather API](https://openweathermap.org)
-
 
 
 <!-- GETTING STARTED -->
@@ -64,7 +60,8 @@ To get a local copy up and running follow the steps below
 
 ### Prerequisites
 
-* Get an API Key from [OpenWeather API](https://openweathermap.org)
+* Get an App ID from [OpenWeather](https://openweathermap.org)
+* Ensure the [Angular](https://angular.io) CLI is installed 
 
 ### Installation
 
@@ -76,24 +73,20 @@ To get a local copy up and running follow the steps below
    ```sh
    npm install
    ```
-3. Enter your OpenWeather API Key  in the `environment.ts` file
+3. Enter your OpenWeather App ID  in the `environment.ts` and `environment.prod.ts` file
    ```JS
     weatherAppId : 'xxxxxxxxxxxxxxxx'
    ```
 2. Serve 
    ```sh
-   npm run serve --open
+   npm run start --open
    ```
 
 ## Usage
 
-When served, the Landing page will display the current weather for 5 cities. To get the forecasts for a city, click on the
+When served, the landing page will display the current weather for 5 cities. To get the forecasts for a city, click on the
 'Show Forecast' button. 
 
-
-
-
-<!-- CONTACT -->
 ## Contact
 
 Email - [toyeeb.rahmon@outlook.com](toyeeb.rahmon@outlook.com) 

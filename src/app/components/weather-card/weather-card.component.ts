@@ -14,7 +14,7 @@ export class WeatherCardComponent implements OnInit {
     image: '',
     id: ''
   };
- @Input() accordionId = 0 ;
+ @Input() accordionItemId = 0 ;
   weatherData: CityWeather = {
     temperature: '',
     dateTime: '',
