@@ -6,34 +6,13 @@
   </nav>
 </header>
 <main>
-
-
   <div class="container">
-
     <div class="row">
-
-
-
-<!-- The apps accordion, to show only the wheather forecasts for the selected city   -->
+     <!-- The apps accordion, to show only the wheather forecasts for the selected city   -->
       <div class="accordion" id="weatherAccordion">
         <!-- Iterates the cities and add a wheather card for each city. The weather-card is an accordion item. -->
         <app-weather-card *ngFor="let city of cities; let id = index"  [city]="city" [accordionItemId]="id" ></app-weather-card>
-
       </div>
-
-
-
-
-
-
-
     </div>
-
-
-
-
-
   </div>
-
-
 </main>

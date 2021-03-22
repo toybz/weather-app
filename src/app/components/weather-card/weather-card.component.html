@@ -1,108 +1,93 @@
 <div class="accordion-item weather-card">
+  <div class="card accordion-header" id="{{'accordion-header'+ accordionItemId }}">
 
-<div class="card accordion-header" id="{{'accordion-header'+ accordionItemId }}">
+    <div class="card-body py-0 px-0">
+      <div class="row">
 
-  <div class="card-body py-0 px-0">
-
-<div class="row">
-
-  <div class="col-md-7  city-image-container" >
-
-   <img [src]="city.image" style="width: 100%" alt="{{
+        <div class="col-md-7  city-image-container">
+          <img [src]="city.image" style="width: 100%" alt="{{
     'image of '+ city.name }}"/>
+        </div>
 
-  </div>
+        <div class="col-md-5 text-center">
+          <h1 class="city_name">{{city.name}}</h1>
 
-  <div class="col-md-5 text-center">
-
-    <h1 class="city_name">{{city.name}}</h1>
-
-
-      <ngx-skeleton-loader  *ngIf="isFetchingWeather" count="1" appearance="" [theme]="{
+          <ngx-skeleton-loader *ngIf="isFetchingWeather" count="1" appearance="" [theme]="{
           width: '6rem',
           height: '2rem',
           'border-radius': '10px',
           'text-align': 'center'
         }"></ngx-skeleton-loader>
+          <p class="average-weather" *ngIf="!isFetchingWeather"> {{weatherData.temperature}} <sup>o </sup>C </p>
 
-    <p class="average-weather"  *ngIf="!isFetchingWeather" > {{weatherData.temperature}} <sup>o </sup>C </p>
-
-    <div style="text-align: center">
-
-      <h4 class="my-0">
-        Wind Strength
-      </h4>
-
-
-      <ngx-skeleton-loader *ngIf="isFetchingWeather" count="1" appearance="" [theme]="{
+          <div style="text-align: center">
+            <h4 class="my-0">
+              Wind Strength
+            </h4>
+            <ngx-skeleton-loader *ngIf="isFetchingWeather" count="1" appearance="" [theme]="{
           width: '12rem',
           height: '2rem',
           'margin-top': '1rem'
         }"></ngx-skeleton-loader>
+            <p class="my-0" *ngIf="!isFetchingWeather">
+              <span class="wind-strength"> {{weatherData.wind}}</span>
+            </p>
 
-      <p class="my-0" *ngIf="!isFetchingWeather">
-        <span class="wind-strength" > {{weatherData.wind}}</span>
-      </p>
+            <p class="my-0" *ngIf="!isFetchingWeather">
+              <span class=""> {{weatherData.dateTime | date: 'short'  }}</span>
+            </p>
 
+          </div>
 
-      <p class="my-0" *ngIf="!isFetchingWeather">
-        <span class="" > {{weatherData.dateTime | date: 'short'  }}</span>
-      </p>
+          <button data-bs-toggle="collapse" [attr.data-bs-target]="'#accordion-body'+ accordionItemId"
+                  class="btn  btn-primary collapsed show_forecast_button" [disabled]="isFetchingWeather"
+                  (click)="fetchWeatherForecast()" id="show_forecast_button">
+            Show Forecast
+          </button>
+
+        </div>
+
+      </div>
 
     </div>
-
-
-
-      <button  data-bs-toggle="collapse"  [attr.data-bs-target]="'#accordion-body'+ accordionItemId" class="btn  btn-primary collapsed show_forecast_button" [disabled]="isFetchingWeather" (click)="fetchWeatherForecast()"  id="show_forecast_button"  >
-        Show Forecast
-      </button>
-
-
-
   </div>
 
-</div>
+  <div id="{{'accordion-body'+ accordionItemId }}" class="accordion-collapse collapse accordion-body-container" aria-labelledby="headingOne" data-bs-parent="#weatherAccordion">
+    <div class="accordion-body text-center px-0 forecast-container">
 
+      <table class="table">
+        <thead>
+        <tr>
+          <th scope="col">DateTime</th>
+          <th scope="col">Temperature</th>
+          <th scope="col">Wind Strength</th>
+        </tr>
+        </thead>
+
+        <tbody *ngIf="isFetchingForecast">
+        <tr>
+          <td>
+            <ngx-skeleton-loader *ngIf="isFetchingForecast" count="5" appearance=""></ngx-skeleton-loader>
+          </td>
+          <td>
+            <ngx-skeleton-loader *ngIf="isFetchingForecast" count="5" appearance=""></ngx-skeleton-loader>
+          </td>
+          <td>
+            <ngx-skeleton-loader *ngIf="isFetchingForecast" count="5" appearance=""></ngx-skeleton-loader>
+          </td>
+        </tr>
+        </tbody>
+
+        <tbody *ngIf="!isFetchingForecast">
+        <tr *ngFor="let forecast of weatherData.forecast">
+          <td>{{forecast.dateTime}}</td>
+          <td>{{forecast.temperature}} <sup>o</sup>C</td>
+          <td>{{forecast.wind}}</td>
+        </tr>
+
+        </tbody>
+      </table>
+    </div>
   </div>
-</div>
-
-<div id="{{'accordion-body'+ accordionItemId }}" class="accordion-collapse collapse accordion-body-container" aria-labelledby="headingOne" data-bs-parent="#weatherAccordion">
-  <div class="accordion-body text-center px-0 forecast-container">
-    <table class="table   ">
-      <thead>
-      <tr>
-
-        <th scope="col">DateTime</th>
-        <th scope="col">Temperature</th>
-        <th scope="col">Wind Strength</th>
-      </tr>
-      </thead>
-
-
-
-      <tbody *ngIf="isFetchingForecast">
-      <tr>
-
-        <td> <ngx-skeleton-loader *ngIf="isFetchingForecast" count="5" appearance="" ></ngx-skeleton-loader></td>
-        <td> <ngx-skeleton-loader *ngIf="isFetchingForecast" count="5" appearance="" ></ngx-skeleton-loader></td>
-        <td> <ngx-skeleton-loader *ngIf="isFetchingForecast" count="5" appearance="" ></ngx-skeleton-loader></td>
-      </tr>
-      </tbody>
-
-
-      <tbody *ngIf="!isFetchingForecast">
-
-      <tr *ngFor="let forecast of weatherData.forecast">
-
-        <td>{{forecast.dateTime}}</td>
-        <td>{{forecast.temperature}} <sup>o</sup>C</td>
-        <td>{{forecast.wind}}</td>
-      </tr>
-
-
-      </tbody>
-    </table>
-  </div>
-</div>
 
 </div>
